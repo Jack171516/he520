@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main ()
+{
+	int i,sum=0,max=0,min=100,c[10];
+	float ave;
+	for (i=1;i<10;i++)
+	{
+		scanf("%d",&c[i]);
+		sum = sum + c[i];
+		if (c[i]>max)
+			max=c[i];
+		if(c[i]<min)
+			min=c[i];
+	}
+	ave = (float)sum/10;
+	printf("平均分为：%f,最高分为：%d,最低分为：%d\n",ave,max,min);
+	return 0;
+}
