@@ -1,0 +1,25 @@
+SListNode* SListMerge(SListNode* list1, SListNode* list2)
+{
+	SListNode* str1, *str2,*_new;
+	str1 = list1;
+	str2 = list2;
+	_new = NULL;
+	while (str1&&str2)
+	{
+		if (str1->data > str2->data)
+		{
+			SListPushBack(&_new,str2->data);
+			str2 = str2->next;
+		}
+		if (str1->data < str2->data)
+		{
+			SListPushBack(&_new, str1->data);
+			str1 = str1->next;
+		}
+		else
+		{
+			SListPushBack(&_new, str2->data);
+		}
+	}
+	return _new;
+}
