@@ -1,0 +1,35 @@
+有序数列中插入若干个数，仍然保持有序 */
+
+#include "stdio.h"
+void main()
+{
+    int a[100]={1,4,8,10};
+    int i,k,x,count=4;/* i,k 循环变量， x 输入整数，count 有多少整数*/
+    printf("\n请输入要插入的整数,输入之后按回车键,如要结束请输入-1\n");
+    scanf("%d",&x);
+    while(x!=-1)
+    {
+       /* 寻找插入位置 */
+       for(i=0;i<count;i++)
+       {
+          /* 找到插入位置 */
+          if(a[i]>=x)
+          {
+             /* 移动 */
+             for(k=count;k>i;k--)
+                 a[k]=a[k-1];
+             /* 插入 */
+             a[i]=x;
+             break;
+          }
+       }
+       if(i>=count)
+          a[i]=x;
+       count=count+1;
+       printf("\n插入之后的数组为：\n");
+       for(i=0;i<count;i++)
+          printf("%4d",a[i]);
+       printf("\n请输入要插入的整数,输入之后按回车键,如要结束请输入-1\n");
+       scanf("%d",&x);
+    }
+}
