@@ -1,0 +1,9 @@
+void SListDelNonTailNode(SListNode* pos)
+{
+	SListNode* Ppos;
+	Ppos = NULL;
+	Ppos = pos->next;
+	pos->data = Ppos->data;
+	pos->next = Ppos->next;
+	free(Ppos);
+}
