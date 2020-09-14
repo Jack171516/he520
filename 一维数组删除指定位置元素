@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#define MAXN 20
+void delete_arr(int *a, int M, int *val, int *n);   /*删除指定位置的元素*/
+int main(void){
+    int N, M;             //N是数组个数
+    int i;
+    int a[MAXN];
+    int val;              //val是用来存储被删除的元素
+    printf("请输入数组个数：");
+    scanf("%d", &N);
+    printf("请输入将要删除元素的位置（1-%d）:", N);
+    scanf("%d", &M);      //M是待删除的元素的位置，第一个元素位置为1；
+    if(M < 1 || M > N)
+        return 0;
+    printf("输入数组%d个元素:", N);
+    for(i = 0;i < N; i++){
+        scanf("%d", &a[i]);
+    }
+    delete_arr(a, M, &val, &N);
+
+    printf("删除的元素是:%d\n", val);
+    printf("输出删除元素后的数组：");
+    for(i = 0;i < N; i++){
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+void delete_arr(int *a, int M, int *val, int *n){  //M是位置，val是被删除的值，n是数组个数
+    *val = a[M - 1];
+    for(int i = M; i < *n; i++){
+        a[i - 1] = a[i];
+    }
+    *n = *n - 1;
+}
