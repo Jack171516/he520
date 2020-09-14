@@ -1,0 +1,18 @@
+查找单链表的中间节点，要求只能遍历一次链表。
+SListNode* SListFindMidNode(SListNode* list)
+{
+	SListNode* fast, *slow;
+	fast = list;
+	slow = list;
+	while (fast->next)
+	{
+		fast = fast->next;
+		if (fast->next == NULL)
+		{
+			break;
+		}
+		fast = fast->next;
+		slow = slow->next;
+	}
+	return slow;
+}
