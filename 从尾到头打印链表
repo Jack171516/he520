@@ -1,0 +1,16 @@
+void SLitsPrintTailToHead(SListNode* pHead)
+{
+	SListNode* _new, *ptr;
+	_new = NULL;
+	ptr = pHead;
+	while (ptr)
+	{
+		SListPushFront(&_new, ptr->data);
+		ptr = ptr->next;
+	}
+	while (_new)
+	{
+		printf("%d ", _new->data);
+		_new = _new->next;
+	}
+}
