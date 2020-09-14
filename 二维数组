@@ -1,0 +1,45 @@
+5*5矩阵中每行的绝对值最大值，与同行对角线交换
+
+#include "stdio.h"
+#include "math.h"
+void main()
+{
+   int a[5][5]={{1,2,3,4,-5},{3,5,-2,4,2},{4,1,2,3,-2},
+                {1,3,-2,4,6},{2,2,0,7,4}} ;
+   int i,k,max,sub,temp;
+   /* i 循环变量，控制行， k 循环变量，控制列，max 当前最大绝对值，sub 当前最大绝对值元素的下标
+    temp 临时用于交换的变量 */
+
+    printf("交换之前，输出\n");  /*交换之前，输出*/
+   for(i=0;i<=4;i++)
+   {
+      for(k=0;k<=4;k++)
+            printf("%4d",a[i][k]);
+      printf("\n");
+   }
+   /*交换*/
+   for(i=0;i<=4;i++)
+   {
+      /*假设第一个元素最大*/
+      max=fabs(a[i][0]);  sub=0;
+      /*寻找绝对值最大的元素记下下标*/
+      for(k=1;k<=4;k++)
+      {
+       if(fabs(a[i][k])>max)
+         {
+           max=fabs(a[i][k]);  sub=k;
+         }
+      }
+      /*交换*/
+      temp=a[i][i];  a[i][i]=a[i][sub];  a[i][sub]=temp;
+   }
+   /*交换之后，输出*/
+   printf("交换之后，输出\n");
+   for(i=0;i<=4;i++)
+   {
+      for(k=0;k<=4;k++)
+           printf("%4d",a[i][k]);
+      printf("\n");
+   }
+
+}
