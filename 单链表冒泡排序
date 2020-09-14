@@ -1,0 +1,29 @@
+void SListBubbleSort(SListNode* list)
+{
+	int i, j,count;
+	count = 0;
+	int mid;
+	SListNode* str,*ptri,*ptrj;
+	str = list;
+	while (str)
+	{
+		str = str->next;
+		count++;
+	}
+	for (i = 0;i < count-1;i++)
+	{
+		ptri = list;
+		ptri = ptri->next;
+		for (j = 0;j < i-1;j++)
+		{
+			ptrj = list;
+			ptrj = ptrj->next;
+			if (ptri->data > ptrj->data)
+			{
+				mid = ptri->data;
+				ptri->data = ptrj->data;
+				ptrj->data = mid;
+			}
+		}
+	}
+}
