@@ -1,0 +1,18 @@
+#include<stdio.h>
+double power(double x,int n);
+main()
+{
+   double x;
+   int n;
+   printf("Input x,n:");
+   scanf("%lf,%d",&x,&n);
+   printf("%.2lf\n",power(x,n));	
+}
+double power(double x,int n)
+{
+   double a=1.0;
+   int i;
+   for(i=1;i<=n;i++)
+   a*=x;
+   return a;
+}
